@@ -1,6 +1,6 @@
 import React from "react";
 import { Card as AntdCard } from "antd";
-import { CardProps } from "antd/lib/card";
+import { CardProps } from "antd/lib/cards";
 
 export const Card: React.FC<CardProps> = ({ title, children, ...rest }) => {
   return (
