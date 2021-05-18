@@ -11,6 +11,7 @@ module.exports = {
                 { message: "Bootstrap", name: "bootstrap" },
                 { message: "Chakra UI", name: "chakra-ui" },
                 { message: "Antd", name: "antd" },
+                { message: "Material UI", name: "material" },
             ],
             default: "none",
         },
