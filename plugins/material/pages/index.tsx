@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Button } from "@components";
 import { Cards } from "@components"
+import { Container } from "../../tailwind/src/components";
 
 const Home: React.FC = () => {
     return (
-        <div>
+        <Container>
             <h1>My test</h1>
-            <Button />
             <Cards/>
-        </div>
+        </Container>
     );
 }
 
