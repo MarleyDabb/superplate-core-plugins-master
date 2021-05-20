@@ -5,7 +5,7 @@ import { Cards } from "@components"
 
 const Home: React.FC = () => {
     return (
-        <div>
+        <div className={'container'}>
             <h1>My test</h1>
             <Cards/>
         </div>
