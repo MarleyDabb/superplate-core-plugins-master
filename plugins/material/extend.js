@@ -1,6 +1,6 @@
 const base = {
     _app: {
-        import: ["test"],
+        import: [""],
     },
 };
 
