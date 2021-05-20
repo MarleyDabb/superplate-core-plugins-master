@@ -7,7 +7,6 @@
       "@styles": ["src/styles"],
       "@public/*": ["public/*"],
       "@public": ["public"]
-    },
-    "jsx": "react"
+    }
   }
 }
