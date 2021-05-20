@@ -18,7 +18,10 @@ const useStyles = makeStyles({
         transform: 'scale(0.8)',
     },
     title: {
-        fontSize: 14,
+        fontWeight: 500
+    },
+    main: {
+        fontWeight: "lighter"
     },
     pos: {
         marginBottom: 12,
@@ -29,23 +32,25 @@ export const Cards: React.FC = (context) => {
     console.log(context);
     const classes = useStyles();
     return (
-        <>
+        <div className={'row'}>
             {(data?.plugins ?? []).map((plugin) => (
-                <Card>
-                    <CardContent>
-                        <Typography className={classes.title}>
-                            {plugin.name}
-                        </Typography>
-                        <Typography variant={'body2'} component={'p'}>
-                            {plugin.description}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size={'small'}>Learn More</Button>
-                    </CardActions>
-                </Card>
+                <div key={plugin.name} className={'col s3'}>
+                    <Card variant={'outlined'}>
+                        <CardContent>
+                            <Typography variant={'h5'} gutterBottom className={classes.title}>
+                                {plugin.name}
+                            </Typography>
+                            <Typography variant={'body2'} component={'p'} className={classes.main}>
+                                {plugin.description}
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button variant="outlined" color="primary" size={'small'} href={plugin.url}>Learn More</Button>
+                        </CardActions>
+                    </Card>
+                </div>
             ))}
-        </>
+        </div>
     )
 }
 
