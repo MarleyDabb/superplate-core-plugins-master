@@ -7,7 +7,7 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     o[k2] = m[k];
 }));
 exports.__esModule = true;
-exports.Button = void 0;
-var button_1 = require("./button");
-__createBinding(exports, button_1, "Button");
-// export {Cards} from "./cards";
+exports.decrease = exports.increase = void 0;
+var counter_1 = require("@redux/slices/counter");
+__createBinding(exports, counter_1, "increase");
+__createBinding(exports, counter_1, "decrease");

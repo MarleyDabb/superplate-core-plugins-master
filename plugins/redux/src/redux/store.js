@@ -1,0 +1,10 @@
+"use strict";
+exports.__esModule = true;
+exports.useAppDispatch = void 0;
+var toolkit_1 = require("@reduxjs/toolkit");
+var react_redux_1 = require("react-redux");
+var reducers_1 = require("./reducers");
+var store = toolkit_1.configureStore({ reducer: reducers_1["default"] });
+var useAppDispatch = function () { return react_redux_1.useDispatch(); };
+exports.useAppDispatch = useAppDispatch;
+exports["default"] = store;
