@@ -5,10 +5,10 @@ import { Cards } from "@components"
 
 const Home: React.FC = () => {
     return (
-        <Container>
+        <div>
             <h1>My test</h1>
             <Cards/>
-        </Container>
+        </div>
     );
 }
 
