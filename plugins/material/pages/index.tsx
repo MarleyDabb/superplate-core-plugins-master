@@ -5,6 +5,7 @@ import { NavigationBar } from "@components";
 
 
 const Home: React.FC = () => {
+
     return (
         <>
             <NavigationBar/>

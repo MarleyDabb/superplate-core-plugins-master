@@ -31,6 +31,16 @@ module.exports = {
             default: "css",
         },
         {
+          name: "authentication",
+          message: "Authentication:",
+          type: "select",
+          pageSize: 3,
+          choices: [
+              { message: "next-auth", name: "nextauth"}
+          ],
+            default: "none"
+        },
+        {
             name: "styled_specific",
             message: "Do you also want to add styled-system ?",
             type: "select",
