@@ -36,6 +36,7 @@ module.exports = {
           type: "select",
           pageSize: 3,
           choices: [
+              { message: 'None', name: 'none'},
               { message: "next-auth", name: "nextauth"}
           ],
             default: "none"

@@ -7,8 +7,26 @@ import Link from "next/link";
 import { Button } from "@components";
 
 export const Main: React.FC = () => {
+    <% if(answers.authentication === "nextauth" ) { %>
+        const [session, loading] = useSession();
+    <% } %>
+
   return (
     <div className="text-center font-light py-5 bg-gray-700">
+        <% if(answers.authentication === "nextauth" ) { %>
+        {!session && (
+            <>
+                <p>Not Signed In</p>
+                <button onClick={signIn}>Sign In</button>
+            </>
+        )}
+        {session && (
+            <>
+                <p>Signed in as {session.user.email}</p>
+                <button onClick={signOut}>Sign Out</button>
+            </>
+        )}
+        <% } %>
 
       <div className="container mx-auto">
         <h1 <% if(!(e2etest === "none")) { %>  data-test="main-heading" <% } %> className="text-white text-8xl mb-2">superplate</h1>
