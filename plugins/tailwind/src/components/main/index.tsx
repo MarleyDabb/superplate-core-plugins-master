@@ -17,13 +17,17 @@ export const Main: React.FC = () => {
         {!session && (
             <>
                 <p>Not Signed In</p>
-                <button onClick={signIn}>Sign In</button>
+                <button
+                    className={`py-2 px-4 rounded bg-green-500 hover:bg-green-600 focus:outline-none ring-opacity-75 ring-green-400 focus:ring text-white text-lg`}
+                    onClick={signIn}>Sign In</button>
             </>
         )}
         {session && (
             <>
                 <p>Signed in as {session.user.email}</p>
-                <button onClick={signOut}>Sign Out</button>
+                <button
+                    className={`py-2 px-4 rounded bg-green-500 hover:bg-green-600 focus:outline-none ring-opacity-75 ring-green-400 focus:ring text-white text-lg`}
+                    onClick={signOut}>Sign Out</button>
             </>
         )}
         <% } %>
