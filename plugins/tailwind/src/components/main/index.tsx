@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-<% if (answers.nextauth) === true { %>
+<% if(answers.nextauth === true ) { %>
     import {signIn, signOut, useSession} from "next-auth/client";
 <% } %>
 
