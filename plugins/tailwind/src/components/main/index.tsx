@@ -4,6 +4,8 @@ import Link from "next/link";
     import {signIn, signOut, useSession} from "next-auth/client";
 <% } %>
 
+<% console.log(answers) %>
+
 import { Button } from "@components";
 
 export const Main: React.FC = () => {
