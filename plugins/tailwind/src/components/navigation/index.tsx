@@ -24,8 +24,9 @@ export const Navigation: React.FC = () => {
                 <div className="mr-3 flex">
                    <% if (answers.authentication === "nextauth") { %>
                 {!session &&
-                    <Link href='/login'
-                    className="cursor-pointer bg-green-500 text-white align-middle white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                    <Link href='/login'>
+                    <span className="cursor-pointer bg-green-500 text-white align-middle white px-3 py-2 rounded-md text-sm font-medium">Login</span>
+                    </Link>
                 }
                 {session &&
                     <>

@@ -70,6 +70,7 @@ export const Credentials: React.FunctionComponent = () => {
 
     return (
         <form onSubmit={submitHandler}>
+            <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
             <div className="mb-4">
                 <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="email">
                     Email Address
@@ -89,10 +90,15 @@ export const Credentials: React.FunctionComponent = () => {
                     autoComplete={'current-password'} required onChange={e => setPassword(e.target.value)} />
             </div>
             <div className="flex items-center justify-between">
-                <button className="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button"
-                        onClick={submitHandler}>
-                    Sign In
+                <button className="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
+                    {isLogin ? 'Login' : 'Create Account'}
                 </button>
+                <button className="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
+                        onClick={switchAuthModeHandler}
+                        type='button'>
+                    {isLogin ? 'Create new account' : 'Login with existing account'}
+                </button>
+
             </div>
         </form>
     )
