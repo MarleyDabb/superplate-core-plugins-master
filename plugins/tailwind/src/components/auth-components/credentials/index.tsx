@@ -1,27 +1,67 @@
 import React, {ProviderProps, useState} from "react";
 import {ProviderType} from "next-auth/providers";
 import {providers, signIn} from "next-auth/client";
+import {useRouter} from "next/router";
 
+<% if(answers.database === "mongodb" ) { %>
+    async function createUser(email, password) {
+        const response = await fetch('/api/auth/signup', {
+            method: 'POST',
+            body: JSON.stringify({email, password}),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
 
-// interface CredentialsProps {
-//     provider: ProviderType;
-//     submitHandler(provider: string, payload: Record<string, string>)
-// }
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Something went wrong');
+        }
+
+        return data;
+    }
+    <% } %>
 
 export const Credentials: React.FunctionComponent = () => {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
 
-    const providersArray = providers ? Object.values(providers) : [];
-    const emailPasswordProvider = providersArray.find(provider => provider.type === "credentials");
+    <% if (answers.database === 'mongodb') { %>
+        const [isLogin, setIsLogin] = useState(true);
+        const router = useRouter();
 
-    const submitHandler = async (provider: string, payload: Record<string, string>) => {
-        await signIn(provider, payload)
-    }
+        function switchAuthModeHandler() {
+            setIsLogin((prevState) => !prevState);
+        }
 
-    // const keyDownHandler = (e: React.KeyboardEvent<HTMLFormElement>) => {
-    //
-    // }
+        async function submitHandler(event) {
+            event.preventDefault();
+
+            if (isLogin) {
+                const result = await signIn('credentials', {
+                    redirect: false,
+                    email: emailAddress,
+                    password: password
+                })
+
+                if (!result.error) {
+                    // Set auth state
+                    await router.replace('/') // Redirects to profile page after login
+                }
+
+                console.log(result);
+            } else {
+                try {
+                    const result = await createUser(emailAddress, password)
+                    console.log(result);
+                } catch(err) {
+                    console.log(err);
+                }
+            }
+        }
+
+        <% } %>
 
     return (
         <form onSubmit={submitHandler}>
@@ -45,11 +85,7 @@ export const Credentials: React.FunctionComponent = () => {
             </div>
             <div className="flex items-center justify-between">
                 <button className="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button"
-                        onClick={() => {
-                            submitHandler("email-password-auth", {
-                                emailAddress,
-                                password
-                            })}}>
+                        onClick={submitHandler}>
                     Sign In
                 </button>
             </div>
