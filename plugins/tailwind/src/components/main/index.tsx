@@ -4,8 +4,6 @@ import Link from "next/link";
     import {signIn, signOut, useSession} from "next-auth/client";
 <% } %>
 
-<% console.log(answers) %>
-
 import { Button } from "@components";
 
 export const Main: React.FC = () => {
@@ -21,7 +19,10 @@ export const Main: React.FC = () => {
           The frontend boilerplate with superpowers!
             <% if(answers.authentication === "nextauth" ) { %>
         {session && (
+            <>
+            <br>
             <span>Logged in as {session.user.email}</span>
+            </>
 
             )}
             <% } %>

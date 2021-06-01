@@ -8,3 +8,4 @@ export { Container } from "./container";
 export { Navigation } from "./navigation";
 export { Layout } from "./layout";
 export { Credentials } from "./auth-components/credentials";
+export {GoogleAuth} from "./auth-components/google";

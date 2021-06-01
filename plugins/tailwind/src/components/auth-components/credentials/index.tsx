@@ -58,7 +58,7 @@ export const Credentials: React.FunctionComponent = () => {
 
                     if (!result.error) {
                         // Set auth state
-                        await router.replace("/"); // Redirects to profile page after login
+                        setIsLogin((prevState) => !prevState) // Changes to login view
                     }
                 } catch (err) {
                     console.log(err);
@@ -70,7 +70,7 @@ export const Credentials: React.FunctionComponent = () => {
 
     return (
         <form onSubmit={submitHandler}>
-            <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
+            <h1 className='mb-2'>{isLogin ? 'Login' : 'Sign Up'}</h1>
             <div className="mb-4">
                 <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="email">
                     Email Address

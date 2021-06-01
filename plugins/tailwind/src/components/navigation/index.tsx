@@ -16,8 +16,7 @@ export const Navigation: React.FC = () => {
             <div className="flex flex-row justify-between pt-5 pb-5 ml-3">
                 <div className="flex">
                     <a href="#" className="text-white text-2xl mr-4">Company Logo</a>
-                    <Link href="/"
-                       className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium mr-2">Home</Link>
+                    <Link href="/"> <span className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium mr-2">Home</span></Link>
                     <a href="#"
                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Link</a>
                 </div>
