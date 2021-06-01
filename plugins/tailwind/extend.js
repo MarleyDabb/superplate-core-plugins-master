@@ -1,8 +1,9 @@
 const base = {
     _app: {
-        import: ['import "tailwindcss/tailwind.css";'],
+        import: ['import "tailwindcss/tailwind.css";',
+        'import { Layout } from "@components";'],
         inner: [],
-        wrapper: [],
+        wrapper: [["<Layout>", "</Layout>"]],
     },
     _document: {
         import: [],

@@ -74,3 +74,5 @@ typings/
 
 # FuseBox cache
 .fusebox/
+.idea/inspectionProfiles/No_Error_Inspections.xml
+.idea/inspectionProfiles/profiles_settings.xml

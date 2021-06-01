@@ -42,6 +42,19 @@ module.exports = {
             default: "none"
         },
         {
+           name: "database",
+           message: "Authentication Database",
+           type: "select",
+           pageSize: 5,
+           choices: [
+               { message: 'None', name: 'none'},
+               { message: 'MongoDB', name: 'mongodb'},
+               { message: 'random database', name: 'none'}
+           ],
+            default: 'none',
+            skip: ({ answers }) => answers.authentication !== "nextauth",
+        },
+        {
             name: "styled_specific",
             message: "Do you also want to add styled-system ?",
             type: "select",
