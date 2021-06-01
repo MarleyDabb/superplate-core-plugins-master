@@ -39,23 +39,28 @@ export const Credentials: React.FunctionComponent = () => {
             event.preventDefault();
 
             if (isLogin) {
-                const result = await signIn('credentials', {
+                const result = await signIn("credentials", {
                     redirect: false,
                     email: emailAddress,
-                    password: password
-                })
+                    password: password,
+                });
 
                 if (!result.error) {
                     // Set auth state
-                    await router.replace('/') // Redirects to profile page after login
+                    await router.replace("/"); // Redirects to profile page after login
                 }
 
                 console.log(result);
             } else {
                 try {
-                    const result = await createUser(emailAddress, password)
+                    const result = await createUser(emailAddress, password);
                     console.log(result);
-                } catch(err) {
+
+                    if (!result.error) {
+                        // Set auth state
+                        await router.replace("/"); // Redirects to profile page after login
+                    }
+                } catch (err) {
                     console.log(err);
                 }
             }

@@ -1,6 +1,6 @@
 <% if(answers.database === "mongodb" ) { %>
-import connectToDatabase from "@lib/db";
-import {hashPassword} from "@lib/auth";
+import connectToDatabase from "../../../src/lib/db";
+import {hashPassword} from "../../../src/lib/auth";
 
     async function handler(req, res) {
         if (req.method === 'POST') {

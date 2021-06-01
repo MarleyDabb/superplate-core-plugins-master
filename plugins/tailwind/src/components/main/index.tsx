@@ -19,6 +19,12 @@ export const Main: React.FC = () => {
         <h1 <% if(!(e2etest === "none")) { %>  data-test="main-heading" <% } %> className="text-white text-8xl mb-2">superplate</h1>
         <p className="text-lg text-white mb-3">
           The frontend boilerplate with superpowers!
+            <% if(answers.authentication === "nextauth" ) { %>
+        {session && (
+            <span>Logged in as {session.user.email}</span>
+
+            )}
+            <% } %>
         </p>
         <Button type="button">
           <a <% if(!(e2etest==="none" )) { %> data-test="docs-btn-anchor" <% } %>
