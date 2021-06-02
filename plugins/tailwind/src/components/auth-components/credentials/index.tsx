@@ -3,7 +3,9 @@ import {ProviderType} from "next-auth/providers";
 import {providers, signIn} from "next-auth/client";
 import {useRouter} from "next/router";
 
-<% if(answers.database === "mongodb" ) { %>
+<% console.log(answers) %>
+
+<% if(answers.providers.includes('mongodb')) { %>
     async function createUser(email, password) {
         const response = await fetch('/api/auth/signup', {
             method: 'POST',
@@ -21,13 +23,13 @@ import {useRouter} from "next/router";
 
         return data;
     }
-    <% } %>
+<% } %>
 
 export const Credentials: React.FunctionComponent = () => {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
 
-    <% if (answers.database === 'mongodb') { %>
+    <% if (answers.providers.includes('mongodb')) { %>
         const [isLogin, setIsLogin] = useState(true);
         const router = useRouter();
 

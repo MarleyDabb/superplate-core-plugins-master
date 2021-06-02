@@ -1,12 +1,13 @@
 import React from "react";
 <% if(answers.authentication === "nextauth" ) { %>
     import {getProviders, signIn} from "next-auth/client";
-    <% } %>
+
+<% } %>
 
 export const GoogleAuth: React.FC = ({provider}) => {
 
     return (
-        <% if(answers.authentication === "nextauth" ) { %>
+        <% if(answers.providers.includes('google')) { %>
         <form onSubmit={submitHandler}>
             <button
                 onClick={() => signIn(provider.id)}
@@ -22,4 +23,3 @@ export const GoogleAuth: React.FC = ({provider}) => {
         <% } %>
     )
 }
-

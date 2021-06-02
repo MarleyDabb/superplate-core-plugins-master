@@ -14,8 +14,12 @@ const LoginPage: React.FC = ({providers}) => {
             <div className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 flex flex-col container mx-auto w-5/12 mt-12 mb-12">
                 <Credentials/>
                 <hr className='mt-3 mb-2'/>
+            <% if(answers.providers.length > 0 ) { %>
                 <h1 className="text-center">Or Login using a different provider</h1>
-                <GoogleAuth provider={providers.google}/>
+                <% if(answers.providers.includes('google')) { %>
+                    <GoogleAuth provider={providers.google}/>
+                <% } %>
+            <% } %>
             </div>
         </>
         <% } else { %>

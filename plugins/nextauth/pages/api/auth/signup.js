@@ -1,54 +1,53 @@
-<% if(answers.database === "mongodb" ) { %>
-import connectToDatabase from "../../../src/lib/db";
-import {hashPassword} from "../../../src/lib/auth";
+<% if(answers.providers.includes('mongodb')) { %>
+  import connectToDatabase from "../../../src/lib/db";
+  import {hashPassword} from "../../../src/lib/auth";
 
-    async function handler(req, res) {
-        if (req.method === 'POST') {
-            const data = req.body;
+      async function handler(req, res) {
+          if (req.method === 'POST') {
+              const data = req.body;
 
-            const {email, password} = data;
+              const {email, password} = data;
 
-            if (!email || !email.includes('@') || !password || password.trim().length < 7) {
-                res.status(422).json({
-                    message: 'Invalid data'
-                })
-                return;
-            }
+              if (!email || !email.includes('@') || !password || password.trim().length < 7) {
+                  res.status(422).json({
+                      message: 'Invalid data'
+                  })
+                  return;
+              }
 
-            const client = await connectToDatabase();
+              const client = await connectToDatabase();
 
-            const db = client.db();
+              const db = client.db();
 
-            const existingUser = await db.collection('users').findOne({email: email});
+              const existingUser = await db.collection('users').findOne({email: email});
 
-            if (existingUser) {
-                await client.close();
-                return res.status(422).json({
-                    success: false,
-                    message: 'User already exists'
-                })
-            }
+              if (existingUser) {
+                  await client.close();
+                  return res.status(422).json({
+                      success: false,
+                      message: 'User already exists'
+                  })
+              }
 
-            const hashedPassword = await hashPassword(password);
+              const hashedPassword = await hashPassword(password);
 
-            const result = await db.collection('users').insertOne({
-                email: email,
-                password: hashedPassword
-            })
+              const result = await db.collection('users').insertOne({
+                  email: email,
+                  password: hashedPassword
+              })
 
-            res.status(201).json({
-                message: 'Created user',
-                success: true,
-            })
+              res.status(201).json({
+                  message: 'Created user',
+                  success: true,
+              })
 
-            await client.close();
-        }
-    }
+              await client.close();
+          }
+      }
 
-export default handler;
-
+  export default handler;
 <% } %>
-<% if(answers.database !== "mongodb" ) { %>
+<% if(!answers.providers.includes('mongodb')) { %>
     // Different method
 
 <% } %>

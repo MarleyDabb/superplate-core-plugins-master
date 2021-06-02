@@ -1,11 +1,11 @@
-<% if(answers.database === "mongodb" ) { %>
-import {MongoClient} from 'mongodb';
+<% if(answers.providers.includes('mongodb') ) { %>
+  import {MongoClient} from 'mongodb';
 
-    async function connectToDatabase() {
-        const client = await MongoClient.connect(process.env.DB);
+  async function connectToDatabase() {
+      const client = await MongoClient.connect(process.env.DB);
 
-        return client;
-    }
+      return client;
+  }
 
-export default connectToDatabase;
+  export default connectToDatabase;
 <% } %>

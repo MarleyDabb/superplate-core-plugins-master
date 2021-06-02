@@ -42,14 +42,19 @@ module.exports = {
             default: "none"
         },
         {
-           name: "database",
-           message: "Authentication Database",
-           type: "select",
+           name: "providers",
+           message: "Select the authentication providers you want in your application",
+            hint: "use <arrow-keys> to navigate, <space> to select.",
+           type: "multiselect",
            pageSize: 5,
            choices: [
                { message: 'None', name: 'none'},
-               { message: 'MongoDB', name: 'mongodb'},
-               { message: 'random database', name: 'none'}
+               { message: 'MongoDB JWT Authentication', name: 'mongodb'},
+               { message: 'Google', name: 'google'},
+               { message: 'random provider', name: 'none'},
+               { message: 'random provider', name: 'none'},
+               { message: 'random provider', name: 'none'},
+               { message: 'random provider', name: 'none'},
            ],
             default: 'none',
             skip: ({ answers }) => answers.authentication !== "nextauth",

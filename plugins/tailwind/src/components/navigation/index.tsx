@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 <% if(answers.authentication === "nextauth" ) { %>
     import {signIn, signOut, useSession} from "next-auth/client";
-    <% } %>
+<% } %>
 
 export const Navigation: React.FC = () => {
     <% if(answers.authentication === "nextauth" ) { %>
         const [session, loading] = useSession();
-        <% } %>
+    <% } %>
 
     return (
         <div className="bg-gray-800">
@@ -21,7 +21,7 @@ export const Navigation: React.FC = () => {
                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Link</a>
                 </div>
                 <div className="mr-3 flex">
-                   <% if (answers.authentication === "nextauth") { %>
+                <% if (answers.authentication === "nextauth") { %>
                 {!session &&
                     <Link href='/login'>
                     <span className="cursor-pointer bg-green-500 text-white align-middle white px-3 py-2 rounded-md text-sm font-medium">Login</span>
@@ -33,11 +33,9 @@ export const Navigation: React.FC = () => {
                     <img src={session.user.image} className="bg-green-500 w-10 h-10 rounded-full"></img>
                     </>
                 }
-                    <% } %>
+                <% } %>
                 </div>
             </div>
         </div>
     );
 };
-
-
