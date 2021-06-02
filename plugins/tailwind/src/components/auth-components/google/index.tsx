@@ -8,7 +8,7 @@ export const GoogleAuth: React.FC = ({provider}) => {
 
     return (
         <% if(answers.providers.includes('google')) { %>
-        <form onSubmit={submitHandler}>
+        <form>
             <button
                 onClick={() => signIn(provider.id)}
                 className="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline mt-3"
