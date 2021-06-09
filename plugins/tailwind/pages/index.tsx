@@ -1,5 +1,11 @@
 import React from "react";
 
+<% if (answers.testing_plugins === 'amplify') {
+  if (test) {
+    console.log(test);
+  }
+} %>
+
 
 import { Container, Main, Cards } from "@components";
 

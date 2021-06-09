@@ -1,6 +1,17 @@
 module.exports = {
     prompts: [
         {
+          name: "testing_plugins",
+          message: "testing purposes",
+          type: "select",
+          pageSize: 3,
+          choices: [
+            {message: "None", name: "none"},
+            {message: "Amplify", name: "amplify"}
+          ],
+          default: "none"
+        },
+        {
             name: "ui",
             message: "UI framework:",
             type: "select",
