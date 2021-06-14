@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 
+
 <%_ if (answers.features.includes('bundle-analyzer')) { _%>
     const withBundleAnalyzer = require('@next/bundle-analyzer')({
         enabled: process.env.ANALYZE === 'true',
