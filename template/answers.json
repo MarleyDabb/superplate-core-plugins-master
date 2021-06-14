@@ -1,1 +1,1 @@
-<%= answers %>
+<%= JSON.stringify(answers) %>
