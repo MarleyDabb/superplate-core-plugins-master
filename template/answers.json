@@ -1,1 +1,7 @@
-<%= JSON.stringify(answers) %>
+<% console.log(answers.length) %>
+
+//{
+//  <% for (let i = 0; i < answers.length; i++) { %>
+//    <%= answer[i] %>
+//  <% } %>
+//}
